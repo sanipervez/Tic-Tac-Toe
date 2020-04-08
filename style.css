@@ -3,6 +3,7 @@ background-color: rgba(0, 0, 0, 0.753);
  text-align: center;
  color: thistle;
 }
+
 /*Made the grid to center,created 3 rows and columns */
 .grid{
     display: grid;
@@ -31,14 +32,17 @@ img{
 
 .buttons{
     display: grid;
-    grid-template-columns: 140px ;
+    grid-template-columns: 140px 140px;
     justify-content: center;
+    grid-column-gap: 20px;
 }
 .buttons div{
     background-color: thistle;
     color: teal;
     padding: 0;
 }
+
+
 /*This is the image that appears in the button when a player when*/
 .button-img{
     width: 13px;
