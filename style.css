@@ -80,5 +80,6 @@ td{
     table{
         border: 20px solid hotpink;
         margin:5px auto;      
+        position:static;
 }
 }
