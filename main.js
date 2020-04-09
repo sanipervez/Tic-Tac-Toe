@@ -1,5 +1,6 @@
 //step is used in a logic that helps user to insert alternate images(cross,nought)
 let step;
+let X=0,O=0;
 
 //All the cells are are stored in a Nodelist
 const boxes=document.querySelectorAll('.box');
@@ -42,17 +43,23 @@ function handler(event){
 
 //winner Function determines which player has won the Game or is it a Draw
 function winner(val){
+ 
   if((pos[0]===pos[1] && pos[1]===pos[2]) || (pos[0]===pos[4] && pos[4]===pos[8]) || (pos[6]===pos[4] && pos[4]===pos[2]) || (pos[6]===pos[7] && pos[7]===pos[8]) || (pos[0]===pos[3] && pos[3]===pos[6]) || (pos[3]===pos[4] && pos[4]===pos[5]) || (pos[1]===pos[4] && pos[4]===pos[7]) || (pos[2]===pos[5] && pos[5]===pos[8])){
     
     if(val==='cross'){
       //displays message on the button,player1 wins
       document.getElementById('button').innerHTML='<h3>Player <img class="button-img" src="./1-16405_american-red-cross-computer-icons-christian-cross-symbol.png"> Wins! Play Again</h3>';
+      X++;
+      console.log(X);
+      document.getElementById('scoreX').innerHTML=`<h4>${X}</h4>`;
 
   
     }
     else{
        //displays message on the button,player2 wins
       document.getElementById('button').innerHTML='<h3>Player <img class="button-img"  src="./421-4211837_fond-colors-circle-poster-u37711-transparent-red-strikethrough.png"> Wins! Play Again</h3>';
+      O++;
+      document.getElementById('scoreO').innerHTML=`<h4>${O}</h4>`;
       
     }
      
