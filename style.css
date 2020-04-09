@@ -76,7 +76,7 @@ th{
 td{
     padding: 0;
 }
-@media only screen and (max-width:400px){
+@media only screen and (max-width:480px){
     table{
         border: 20px solid hotpink;
         margin:5px auto;      
