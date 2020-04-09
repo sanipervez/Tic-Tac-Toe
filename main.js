@@ -8,7 +8,7 @@ const boxes=document.querySelectorAll('.box');
 //startGame is function that initiates the Game
 function startGame(){
   step=1;
-  document.getElementById('button').innerHTML='<h3>Good Luck!</h3>';
+  document.getElementById('button').innerHTML='<h3>Reset!</h3>';
   //pos helps to trace which box is clicked.If cross is the img display on box the pos will be alligned with value 1 or else pos=0
   pos=[10,11,2,3,4,5,6,7,8];
   for(let i=0;i<boxes.length;i++){
@@ -48,16 +48,15 @@ function winner(val){
     
     if(val==='cross'){
       //displays message on the button,player1 wins
-      document.getElementById('button').innerHTML='<h3>Player <img class="button-img" src="./1-16405_american-red-cross-computer-icons-christian-cross-symbol.png"> Wins! Play Again</h3>';
+      document.getElementById('turn').innerHTML='<h3>Player <img class="button-img" src="./1-16405_american-red-cross-computer-icons-christian-cross-symbol.png"> Wins! Play Again</h3>';
       X++;
-      console.log(X);
       document.getElementById('scoreX').innerHTML=`<h4>${X}</h4>`;
 
   
     }
     else{
        //displays message on the button,player2 wins
-      document.getElementById('button').innerHTML='<h3>Player <img class="button-img"  src="./421-4211837_fond-colors-circle-poster-u37711-transparent-red-strikethrough.png"> Wins! Play Again</h3>';
+      document.getElementById('turn').innerHTML='<h3>Player <img class="button-img"  src="./421-4211837_fond-colors-circle-poster-u37711-transparent-red-strikethrough.png"> Wins! Play Again</h3>';
       O++;
       document.getElementById('scoreO').innerHTML=`<h4>${O}</h4>`;
       
@@ -72,7 +71,7 @@ function winner(val){
   }
    //displays message on the button,that the match is draw
   else if(step===10){
-    document.getElementById('button').innerHTML="<h3>It's a DRAW! Play Again</h3>";
+    document.getElementById('turn').innerHTML="<h3>It's a DRAW! Play Again</h3>";
     
   }
 
@@ -80,7 +79,17 @@ function winner(val){
 startGame();
 
 //Restarts the Game By refresing the window
+document.getElementById('turn').onclick=()=>{
+  startGame();
+}
 document.getElementById('button').onclick=()=>{
+  reset();
+}
+function reset(){
+  X=0;
+  O=0;
+  document.getElementById('scoreO').innerHTML=`<h4>${O}</h4>`;
+  document.getElementById('scoreX').innerHTML=`<h4>${X}</h4>`;
   startGame();
 }
 
