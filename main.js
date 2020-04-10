@@ -8,7 +8,7 @@ const boxes=document.querySelectorAll('.box');
 //startGame is function that initiates the Game
 function startGame(){
   step=1;
-  gameComplete=false;
+  gameComplete=false;// to check if game has ended or not
   document.getElementById('button').innerHTML='<h3>Reset!</h3>';
   document.getElementById('turn').innerHTML=`<h3>It's Player <img class="button-img" src="./1-16405_american-red-cross-computer-icons-christian-cross-symbol.png"> turn</h3>`;
   //pos helps to trace which box is clicked.If cross is the img display on box the pos will be alligned with value 1 or else pos=0
@@ -81,7 +81,7 @@ function winner(val){
 }
 startGame();
 
-//Restarts the Game By refresing the window
+//continues the Game
 document.getElementById('turn').onclick=()=>{
   if(gameComplete){
   startGame();
@@ -90,6 +90,7 @@ document.getElementById('turn').onclick=()=>{
 document.getElementById('button').onclick=()=>{
   reset();
 }
+//reset refreshes the entire game and starts a new game
 function reset(){
   X=0;
   O=0;
