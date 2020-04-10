@@ -1,5 +1,5 @@
 //step is used in a logic that helps user to insert alternate images(cross,nought)
-let step;
+let step,gameComplete;
 let X=0,O=0;
 
 //All the cells are are stored in a Nodelist
@@ -8,9 +8,11 @@ const boxes=document.querySelectorAll('.box');
 //startGame is function that initiates the Game
 function startGame(){
   step=1;
+  gameComplete=false;
   document.getElementById('button').innerHTML='<h3>Reset!</h3>';
+  document.getElementById('turn').innerHTML=`<h3>It's Player <img class="button-img" src="./1-16405_american-red-cross-computer-icons-christian-cross-symbol.png"> turn</h3>`;
   //pos helps to trace which box is clicked.If cross is the img display on box the pos will be alligned with value 1 or else pos=0
-  pos=[10,11,2,3,4,5,6,7,8];
+  pos=[0,1,2,3,4,5,6,7,8];
   for(let i=0;i<boxes.length;i++){
     boxes[i].innerHTML='';
     boxes[i].addEventListener('click',handler,{once:true});
@@ -26,7 +28,7 @@ function handler(event){
     document.getElementById(event.target.id).innerHTML='<img class="cross" src="./1-16405_american-red-cross-computer-icons-christian-cross-symbol.png">';
     document.getElementById('turn').innerHTML=`<h3>It's Player <img class="button-img"  src="./421-4211837_fond-colors-circle-poster-u37711-transparent-red-strikethrough.png"> turn</h3>`;//display which player turn it is.
     step++;
-    pos[event.target.id]=1;
+    pos[event.target.id]='x';
     winner('cross');
    
   }
@@ -35,7 +37,7 @@ function handler(event){
   document.getElementById(event.target.id).innerHTML='<img class="nought" src="./421-4211837_fond-colors-circle-poster-u37711-transparent-red-strikethrough.png">';
   document.getElementById('turn').innerHTML=`<h3>It's Player <img class="button-img" src="./1-16405_american-red-cross-computer-icons-christian-cross-symbol.png"> turn</h3>`;//display which player turn it is.
   step++;
-  pos[event.target.id]=0;
+  pos[event.target.id]='o';
   winner('no');
   }
 
@@ -66,12 +68,13 @@ function winner(val){
       boxes[i].removeEventListener('click',handler);
     }
     
-  
+   gameComplete=true;
   
   }
    //displays message on the button,that the match is draw
   else if(step===10){
     document.getElementById('turn').innerHTML="<h3>It's a DRAW! Play Again</h3>";
+    gameComplete=true;
     
   }
 
@@ -80,7 +83,9 @@ startGame();
 
 //Restarts the Game By refresing the window
 document.getElementById('turn').onclick=()=>{
+  if(gameComplete){
   startGame();
+  }
 }
 document.getElementById('button').onclick=()=>{
   reset();
@@ -92,4 +97,3 @@ function reset(){
   document.getElementById('scoreX').innerHTML=`<h4>${X}</h4>`;
   startGame();
 }
-
