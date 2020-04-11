@@ -31,17 +31,18 @@ img{
 }
 
 .buttons{
-    display: grid;
-    grid-template-columns: 70px minmax(140px,230px);
+    display: flex;
+    /*grid-template-columns: 70px minmax(140px,230px);*/
     justify-content: center;
-    grid-column-gap: 12px;
-    margin-left: 90px;
+    /*grid-column-gap: 12px;*/
+    margin-left: 20px;
 }
 .buttons div{
     background-color: thistle;
     color: teal;
     padding: 0;
     justify-self: start;
+    margin:0px 7px;
     
 }
 
@@ -58,6 +59,7 @@ img{
 }
 
 table{
+    border-collapse: collapse;
     border: 20px solid hotpink;
     position: absolute;
     left: 10%;
@@ -77,13 +79,39 @@ th{
 td{
     padding: 0;
 }
-@media only screen and (max-width:480px){
-    table{
-        border: 20px solid hotpink;
-        margin:5px auto;      
-        position:static;
-}
-}
+
 #button{
     padding:5px 10px;
+}
+
+@media only screen and (max-width:1150px){
+
+    table{
+        margin:15px auto;      
+        position:static;
+}
+.buttons{
+    margin-left: 0px;
+}
+
+}
+
+@media only screen and (max-width:655px){
+    .grid{
+        display: grid;
+        width: 320px;
+        height: 320px;
+        grid-template: repeat(3,1fr)/repeat(3,1fr);
+        margin:  25px auto;
+        grid-column-gap: 8px;
+        grid-row-gap:8px;
+      
+    
+    }
+
+    img{
+        width: 45px;
+        height: 45px;
+    }
+   
 }
