@@ -50,7 +50,7 @@ function winner(val){
     
     if(val==='cross'){
       //displays message on the button,player1 wins
-      document.getElementById('turn').innerHTML='<h3><img class="button-img" src="./1-16405_american-red-cross-computer-icons-christian-cross-symbol.png"> Wins! Play Again</h3>';
+      document.getElementById('turn').innerHTML='<h3>&nbsp&nbsp<img class="button-img" src="./1-16405_american-red-cross-computer-icons-christian-cross-symbol.png"> Wins! Play Again</h3>';
       X++;
       document.getElementById('scoreX').innerHTML=`<h4>${X}</h4>`;
 
@@ -58,7 +58,7 @@ function winner(val){
     }
     else{
        //displays message on the button,player2 wins
-      document.getElementById('turn').innerHTML='<h3><img class="button-img"  src="./421-4211837_fond-colors-circle-poster-u37711-transparent-red-strikethrough.png"> Wins! Play Again</h3>';
+      document.getElementById('turn').innerHTML='<h3>&nbsp&nbsp<img class="button-img"  src="./421-4211837_fond-colors-circle-poster-u37711-transparent-red-strikethrough.png"> Wins! Play Again</h3>';
       O++;
       document.getElementById('scoreO').innerHTML=`<h4>${O}</h4>`;
       
