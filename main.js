@@ -21,25 +21,23 @@ function startGame(){
 
 
 //handler is a function,that access each box and onclick either the cross or nought is displayed on the boxes
+//game used images for X and O, which are red icons. Updated with text to better manipulate color adaptions
 function handler(event){
   
-  if(step%2!==0){
-    
-    document.getElementById(event.target.id).innerHTML='<img class="cross" src="./1-16405_american-red-cross-computer-icons-christian-cross-symbol.png">';
-    document.getElementById('turn').innerHTML=`<h3>It's Player <img class="button-img"  src="./421-4211837_fond-colors-circle-poster-u37711-transparent-red-strikethrough.png"> turn</h3>`;//display which player turn it is.
+  if (step % 2 !== 0) {
+    document.getElementById(event.target.id).innerHTML = '<span class="symbol x-symbol">X</span>';
+    document.getElementById('turn').innerHTML = `<h3>It's Player <span class="symbol o-symbol">O</span>'s turn</h3>`;
     step++;
-    pos[event.target.id]='x';
+    pos[event.target.id] = 'X';
     winner('cross');
-   
+  } else {
+    document.getElementById(event.target.id).innerHTML = '<span class="symbol o-symbol">O</span>';
+    document.getElementById('turn').innerHTML = `<h3>It's Player <span class="symbol x-symbol">X</span>'s turn</h3>`;
+    step++;
+    pos[event.target.id] = 'O';
+    winner('no');
   }
-  else{
-    
-  document.getElementById(event.target.id).innerHTML='<img class="nought" src="./421-4211837_fond-colors-circle-poster-u37711-transparent-red-strikethrough.png">';
-  document.getElementById('turn').innerHTML=`<h3>It's Player <img class="button-img" src="./1-16405_american-red-cross-computer-icons-christian-cross-symbol.png"> turn</h3>`;//display which player turn it is.
-  step++;
-  pos[event.target.id]='o';
-  winner('no');
-  }
+  
 
 }
 
