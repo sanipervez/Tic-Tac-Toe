@@ -1,7 +1,7 @@
 body{
 background-color: rgba(0, 0, 0, 0.753);
  text-align: center;
- color: #f0f0f0; /*adjusted for higher visibility + contrast */
+ color: thistle;
 }
 
 /*Made the grid to center,created 3 rows and columns */
@@ -19,12 +19,16 @@ background-color: rgba(0, 0, 0, 0.753);
 /*Added background color the boxes to teal*/
 div{
    
-    background-color: #FFF8E1; /* friendly for color-blind users */
+    background-color: teal;
     border-radius: 10px;
     padding: 25px;
    
 }
-
+/*The Cross and nought image size*/
+img{
+    width: 60px;
+    height: 60px;
+}
 
 .buttons{
     display: flex;
@@ -35,7 +39,7 @@ div{
 }
 .buttons div{
     background-color: thistle;
-    color: #E69F00; /* changed text color for better visibility against updated background color */
+    color: teal;
     padding: 0;
     justify-self: start;
     margin:0px 7px;
@@ -110,35 +114,4 @@ td{
         height: 45px;
     }
    
-}
-/* Adjusting styling of X's and O's */
-.symbol {
-    font-size: 48px;
-    font-weight: bold;
-    display: inline-block;
-    line-height: 1;
-  }
-  
-  .x-symbol {
-    color:	hotpink; 
-  }
-  
-  .o-symbol {
-    color: #E69F00;; 
-  }
-  
-
-/* for blurry vision */
-h1 {
-    font-size: 3em;
-}
-
-h2, h3, h4 {
-    font-size: 2em;
-    font-weight: bold;
-}
-
-table td, table th {
-    font-size: 1.2em;
-    padding: 10px;
 }
